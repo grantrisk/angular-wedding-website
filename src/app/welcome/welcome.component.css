@@ -1,0 +1,64 @@
+/* ---------- WEDDING PICTURE SECTION ---------- */
+.wedding-pic-container {
+  background-image: url(../../assets/images/background-image.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  max-width: 100%;
+  height: 100vh;
+  display: block;
+}
+
+.wedding-pic-container > .wedding-pic-content {
+  text-align: center;
+  object-fit: contain;
+  font-weight: 700;
+  color: #000000;
+  font-size: 40px;
+  margin: auto;
+  padding-top: 1px;
+}
+
+.wedding-pic-container > .wedding-pic-content > h1 {
+  margin-bottom: 0%;
+  margin-top: 2%;
+}
+
+.wedding-pic-container > .wedding-pic-content > h2 {
+  font-size: 55px;
+  margin-top: 0%;
+}
+
+/* Phone settings */
+@media only screen and (max-width: 768px) {
+  .wedding-pic-container {
+    background-image: url(../../assets/images/background-image-phone.jpeg);
+    background-position: 50% 0%;
+  }
+
+  .wedding-pic-container > .wedding-pic-content {
+    /* text-shadow: 2px 2px #000000; */
+  }
+
+  .wedding-pic-container > .wedding-pic-content > h1 {
+    font-size: 12vw;
+  }
+
+  .wedding-pic-container > .wedding-pic-content > h2 {
+    font-size: 6vw;
+  }
+}
+
+/* ---------- WELCOME SECTION ---------- */
+.welcome-section {
+  background-color: #fff6e3;
+  text-align: center;
+  height: 100%;
+  padding: 3%;
+}
+
+.pull-right {
+  float: right;
+  padding-right: 10vw;
+  margin: auto;
+}
