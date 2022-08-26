@@ -94,6 +94,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "angular-wedding-website:build:production",
+            "firebaseProject": "wedding-website-bf9a3",
+            "firebaseHostingSite": "wedding-website-bf9a3"
+          }
         }
       }
     }
