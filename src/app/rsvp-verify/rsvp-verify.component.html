@@ -1,0 +1,31 @@
+<div class="rsvp-verify-section">
+  <div class="flexbox-container">
+    <div class="flexbox-item">
+      <h2>WEDDING INFO</h2>
+      <br />
+      <p>SATURDAY, JUNE 17, 2023</p>
+      <p>5:00 PM</p>
+      <br />
+      <p>Malachi Meadows</p>
+      <p>197 Richard Switch Rd</p>
+      <p>Currie, NC 28435</p>
+      <br />
+      <p>Attire: TBD</p>
+      <br />
+      <p>Additional info about place: TBD</p>
+    </div>
+    <div class="flexbox-item" *ngIf="invitee">
+      <div>
+        <p>{{ invitee.fname }} {{ invitee.lname }}</p>
+      </div>
+      <div class="name-flexbox-container">
+        <div class="name-flexbox-item" [className]="attending ? 'attend-button' : 'no-attend-button'">
+          <button (click)="willAttendSwitch()">WILL ATTEND</button>
+        </div>
+        <div class="name-flexbox-item" [className]="attending ? 'no-attend-button' : 'attend-button'">
+          <button (click)="willNotAttendSwitch()">WILL NOT ATTEND</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

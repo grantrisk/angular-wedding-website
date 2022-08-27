@@ -1,74 +1,109 @@
 <div class="rsvp-section">
   <h1>The RSVP Section!</h1>
   <hr />
-  <div class="rsvp-section-description">
-    <p>
-      Please enter the first and last name of one member of your party below.
-    </p>
-    <p>
-      If you're responding for you and a guest (or your family), you'll be able
-      to RSVP for your entire group on the next page.
-    </p>
-  </div>
-  <div class="form-section">
-    <form novalidate (ngSubmit)="save()" [formGroup]="customForm">
-      <div class="flexbox-container">
-        <div class="flexbox-item">
-          <label for="fname">First name:</label><br />
-          <input
-            type="text"
-            id="fname"
-            required
-            minlength="2"
-            formControlName="fname"
-            placeholder="Smooth"
-            [ngClass]="{
-              'is-invalid':
-                (customForm.get('fname')?.touched ||
-                  customForm.get('fname')?.dirty) &&
-                !customForm.get('fname')?.valid
-            }"
-          />
-          <!-- TODO: Fix this erro div  -->
-          <div style="text-align: center;">
-            <span *ngIf="customForm.get('fname')?.errors?.['required']">
-              Please enter your first name.
-            </span>
-            <span *ngIf="customForm.get('fname')?.errors?.['minlength']">
-              The first name must be longer than 2 characters.
-            </span>
+  <div *ngIf="!this_is_me">
+    <div class="rsvp-section-description">
+      <p>
+        Please enter the first and last name of one member from your party
+        below.
+      </p>
+      <p>
+        If you're responding for you and a guest (or your family), you'll be
+        able to RSVP for your entire group on the next page.
+      </p>
+      <p>
+        Just FYI, you might want to wait until we've settled all the dates 😏
+      </p>
+    </div>
+    <div class="form-section">
+      <form novalidate (ngSubmit)="search()" [formGroup]="customForm">
+        <div class="flexbox-container">
+          <div class="flexbox-item">
+            <label for="fname">First name:</label><br />
+            <input
+              type="text"
+              id="fname"
+              required
+              minlength="2"
+              formControlName="fname"
+              placeholder="Smooth"
+              [ngClass]="{
+                'is-invalid':
+                  (customForm.get('fname')?.touched ||
+                    customForm.get('fname')?.dirty) &&
+                  !customForm.get('fname')?.valid
+              }"
+            />
+            <!-- TODO: Fix this erro div  -->
+            <div style="text-align: center; color: rgb(138, 136, 136)">
+              <span *ngIf="customForm.get('fname')?.errors?.['required']">
+                Please enter your first name.
+              </span>
+              <span *ngIf="customForm.get('fname')?.errors?.['minlength']">
+                The first name must be longer than 2 characters.
+              </span>
+            </div>
+          </div>
+          <br />
+          <div class="flexbox-item">
+            <label for="lname">Last name:</label><br />
+            <input
+              type="text"
+              id="lname"
+              required
+              minlength="2"
+              formControlName="lname"
+              placeholder="Jackson"
+              [ngClass]="{
+                'is-invalid':
+                  (customForm.get('lname')?.touched ||
+                    customForm.get('lname')?.dirty) &&
+                  !customForm.get('lname')?.valid
+              }"
+            />
+            <!-- TODO: Fix this erro div  -->
+            <div style="text-align: center; color: rgb(138, 136, 136)">
+              <span *ngIf="customForm.get('lname')?.errors?.['required']">
+                Please enter your last name.
+              </span>
+              <span *ngIf="customForm.get('lname')?.errors?.['minlength']">
+                The last name must be longer than 2 characters.
+              </span>
+            </div>
           </div>
         </div>
-        <br />
-        <div class="flexbox-item">
-          <label for="lname">Last name:</label><br />
-          <input
-            type="text"
-            id="lname"
-            required
-            minlength="2"
-            formControlName="lname"
-            placeholder="Jackson"
-          />
-        </div>
-      </div>
-      <br /><br />
-      <button type="submit" value="Submit" [disabled]="!customForm.valid">
-        Submit
-      </button>
-    </form>
+        <br /><br />
+        <button type="submit" value="Submit" [disabled]="!customForm.valid">
+          Search
+        </button>
+      </form>
+    </div>
+    <div class="search-results" *ngIf="searchedInvitees.length > 0">
+      <br />
+      <p>Please verify this is you by selecting your name:</p>
+      <ul>
+        <li *ngFor="let invitee of searchedInvitees">
+          -
+          {{ invitee.fname }}
+          {{ invitee.lname }}
+          <button (click)="setInvitee(invitee)">This is me!</button>
+        </li>
+      </ul>
+      <!-- <br />
+      <ul>
+        <li *ngFor="let invitee of invitee$ | async">
+          {{ invitee.fname }}
+          {{ invitee.lname }}
+        </li>
+      </ul> -->
+      <!-- <br />
+      <br />Dirty: {{ customForm.dirty }} 
+      <br />Touched: {{ customForm.touched }}
+      <br />Valid: {{ customForm.valid }} 
+      <br />Value: {{ customForm.value | json }} -->
+    </div>
   </div>
-
-  <div>
-    <!-- Displays automatic updates of items in firestore -->
-    <!-- <ul>
-      <li *ngFor="let item of items | async">
-        {{ item.name }}
-      </li>
-    </ul> -->
-    <br>
-    <br />Dirty: {{ customForm.dirty }} <br />Touched: {{ customForm.touched }}
-    <br />Valid: {{ customForm.valid }} <br />Value:
-    {{ customForm.value | json }}
+  <div *ngIf="this_is_me">
+    <app-rsvp-verify [invitee]="sent_invitee"></app-rsvp-verify>
   </div>
 </div>

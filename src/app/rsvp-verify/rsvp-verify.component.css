@@ -1,0 +1,57 @@
+.flexbox-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flexbox-item {
+  width: fit-content;
+  margin: 10px;
+  padding: 10px;
+}
+
+.flexbox-item p {
+  margin: 5px;
+}
+
+/* ---------- ATTENDING BUTTONS ---------- */
+
+.name-flexbox-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.name-flexbox-item {
+  width: fit-content;
+  margin: 10px;
+  padding: 10px;
+}
+
+.no-attend-button button {
+  width: 200px;
+  background-color: #b8c199;
+  color: white;
+  padding: 14px 0;
+  margin: 8px 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.attend-button button {
+  background-color: #4c562d;
+  width: 200px;
+  color: white;
+  padding: 14px 0;
+  margin: 8px 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .faq-section h1 {
+    padding-top: 20%;
+  }
+}
