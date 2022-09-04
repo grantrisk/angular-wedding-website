@@ -1,6 +1,6 @@
 .header {
   overflow: hidden;
-  background-color: #d5bdaf;
+  background-color: #cbe8eb;
   padding: 10px 10px;
   /* TODO: Remove fixed setting of navbar */
   /* position: fixed; */
@@ -16,6 +16,8 @@
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; /* Safari */
 }
 
 .header a.logo {
@@ -24,12 +26,25 @@
 }
 
 .header a:hover {
+  transition-duration: 0.1s;
   color: white;
 }
 
 .header a.active {
-  background-color: #606c38;
-  color: white;
+  color: black;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+}
+
+.header a:active:after {
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transition: 0s;
 }
 
 .header-right {

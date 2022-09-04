@@ -1,5 +1,5 @@
 .rsvp-section {
-  background-color: #fff6e3;
+  background-color: #CBE8EB;
   text-align: center;
   height: 100%;
   padding: 10px;
@@ -47,7 +47,7 @@ input.ng-touched.ng-invalid {
 
 button[type="submit"] {
   width: 100%;
-  background-color: #606c38;
+  background-color: #439469;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -57,7 +57,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #4c562d;
+  background-color: #64B98C;
 }
 
 .flexbox-container {
