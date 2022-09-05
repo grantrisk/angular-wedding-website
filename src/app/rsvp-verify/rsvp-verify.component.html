@@ -3,29 +3,58 @@
     <div class="flexbox-item">
       <h2>WEDDING INFO</h2>
       <br />
-      <p>SATURDAY, JUNE 17, 2023</p>
+      <p style="font-style: italic">Date & Time:</p>
+      <p>Saturday, June 17, 2023</p>
       <p>5:00 PM</p>
       <br />
+      <p style="font-style: italic">Address:</p>
       <p>Malachi Meadows</p>
       <p>197 Richard Switch Rd</p>
       <p>Currie, NC 28435</p>
       <br />
-      <p>Attire: TBD</p>
+      <p style="font-style: italic">Attire</p>
+      <p>TBD</p>
       <br />
-      <p>Additional info about place: TBD</p>
+      <p style="font-style: italic">Additional info about place:</p>
+      <p>
+        This place is out in the middle of nowhere. Be prepared for anything!
+      </p>
     </div>
     <div class="flexbox-item" *ngIf="invitee">
-      <div>
-        <p>{{ invitee.fname }} {{ invitee.lname }}</p>
-      </div>
-      <div class="name-flexbox-container">
-        <div class="name-flexbox-item" [className]="attending ? 'attend-button' : 'no-attend-button'">
-          <button (click)="willAttendSwitch()">WILL ATTEND</button>
+      <div *ngFor="let invitee of inviteeArray">
+        <div *ngIf="!invitee.rsvped">
+          <p>{{ invitee.fname }} {{ invitee.lname }}</p>
         </div>
-        <div class="name-flexbox-item" [className]="attending ? 'no-attend-button' : 'attend-button'">
-          <button (click)="willNotAttendSwitch()">WILL NOT ATTEND</button>
+        <div *ngIf="invitee.rsvped">
+          <p>{{ invitee.fname }} {{ invitee.lname }} (has RSVPed!)</p>
         </div>
+        <div class="name-flexbox-container">
+          <div
+            class="name-flexbox-item"
+            [className]="
+              invitee.attending ? 'attend-button' : 'no-attend-button'
+            "
+          >
+            <button (click)="attendSwitch(true, invitee)">WILL ATTEND</button>
+          </div>
+          <div
+            class="name-flexbox-item"
+            [className]="
+              invitee.attending ? 'no-attend-button' : 'attend-button'
+            "
+          >
+            <button (click)="attendSwitch(false, invitee)">
+              WILL NOT ATTEND
+            </button>
+          </div>
+        </div>
+        <br />
       </div>
     </div>
   </div>
+  <br />
+  <div *ngIf="invitee">
+    <button (click)="submitForm()">SUBMIT</button>
+  </div>
+  <br />
 </div>

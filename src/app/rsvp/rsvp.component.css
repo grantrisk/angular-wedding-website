@@ -47,7 +47,7 @@ input.ng-touched.ng-invalid {
 
 button[type="submit"] {
   width: 100%;
-  background-color: #439469;
+  background-color: #8EC668;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -57,7 +57,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #64B98C;
+  background-color: #ACD591;
 }
 
 .flexbox-container {
@@ -81,11 +81,15 @@ button[type="submit"]:hover {
 
 .search-results button {
   width: 120px;
-  background-color: #606c38;
+  background-color: #8EC668;
   color: white;
   padding: 14px 20px;
   margin: 8px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.search-results button:hover {
+  background-color: #ACD591;
 }
