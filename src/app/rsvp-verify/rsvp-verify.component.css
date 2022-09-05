@@ -30,9 +30,10 @@
 
 .no-attend-button button {
   width: 200px;
-  background-color: #C9E4B7;
+  background-color: #94a787;
+  opacity: .6;
   box-shadow: 1px 1px gray;
-  color: black;
+  color: white;
   padding: 14px 0;
   margin: 8px 4px;
   border: none;
@@ -41,7 +42,7 @@
 }
 
 .attend-button button {
-  background-color: #8EC668;
+  background-color: #8ec668;
   box-shadow: 1px 1px gray;
   width: 200px;
   color: white;
@@ -54,7 +55,7 @@
 
 button {
   width: 50%;
-  background-color: #8EC668;
+  background-color: #8ec668;
   color: white;
   padding: 14px 20px;
   margin: 8px 20px;
@@ -64,11 +65,36 @@ button {
 }
 
 button:hover {
-  background-color: #ACD591;
+  background-color: #acd591;
 }
 
 @media only screen and (max-width: 768px) {
   .faq-section h1 {
     padding-top: 20%;
+  }
+
+  .flexbox-container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .flexbox-item {
+    align-items: center;
+    width: auto;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .name-flexbox-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .name-flexbox-item {
+    width: fit-content;
+    margin: 10px;
+    padding: 10px;
   }
 }

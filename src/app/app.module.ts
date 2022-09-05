@@ -34,7 +34,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     RouterModule.forRoot([
       { path: 'rsvp', component: RsvpComponent },
       { path: 'faq', component: FaqComponent },
-      { path: 'info', component: InfoComponent },
+      { path: 'story', component: InfoComponent },
       { path: 'photos', component: PhotosComponent },
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },

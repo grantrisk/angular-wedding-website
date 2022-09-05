@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.css']
+  styleUrls: ['./faq.component.css'],
 })
 export class FaqComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('FAQ | M&G Wedding');
   }
 
+  ngOnInit(): void {}
 }
