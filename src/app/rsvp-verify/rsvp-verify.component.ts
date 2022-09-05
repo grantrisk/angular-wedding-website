@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {
-  doc, Firestore,
-  updateDoc
-} from '@angular/fire/firestore';
+import { doc, Firestore, updateDoc } from '@angular/fire/firestore';
 import { Constants, Invitee } from '../rsvp/rsvp.component';
 
 @Component({
@@ -13,11 +10,8 @@ import { Constants, Invitee } from '../rsvp/rsvp.component';
 export class RsvpVerifyComponent implements OnInit {
   @Input() invitee!: Invitee;
   @Input() inviteeArray!: Invitee[];
-  firestore: Firestore;
 
-  constructor(firestore: Firestore) {
-    this.firestore = firestore;
-  }
+  constructor(private firestore: Firestore) {}
 
   ngOnInit(): void {}
 
@@ -38,7 +32,10 @@ export class RsvpVerifyComponent implements OnInit {
         this.firestore,
         `${Constants.invitees_collection}/${person.docId}`
       );
-      updateDoc(personDocRef, {rsvped: person.rsvped, attending: person.attending});
+      updateDoc(personDocRef, {
+        rsvped: person.rsvped,
+        attending: person.attending,
+      });
       console.log(JSON.stringify(person));
     });
   }

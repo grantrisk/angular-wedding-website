@@ -10,7 +10,7 @@ import {
   Firestore,
   getDocs,
   query,
-  where
+  where,
 } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
