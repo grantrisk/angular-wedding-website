@@ -10,9 +10,10 @@ import {
   Firestore,
   getDocs,
   query,
-  where,
+  where
 } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 
 export interface Invitee {
@@ -42,7 +43,6 @@ export enum Constants {
 export class RsvpComponent implements OnInit {
   customForm!: FormGroup;
   private myCollection: CollectionReference<DocumentData>;
-  // TODO: REMOVE
   invitee$: Observable<Invitee[]>;
   searchedInvitees: Invitee[];
   firestore: Firestore;
@@ -50,11 +50,15 @@ export class RsvpComponent implements OnInit {
   this_is_me: boolean = false;
   inviteeArray: Invitee[];
 
-  constructor(private fb: FormBuilder, firestore: Firestore) {
+  constructor(
+    private fb: FormBuilder,
+    firestore: Firestore,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle('RSVP | M&G Wedding');
     this.firestore = firestore;
     this.myCollection = collection(firestore, Constants.invitees_collection);
     this.invitee$ = collectionData(this.myCollection) as Observable<Invitee[]>;
-    // TODO: remove this object
     this.searchedInvitees = new Array();
     this.inviteeArray = new Array();
     this.sent_invitee = {
@@ -65,37 +69,6 @@ export class RsvpComponent implements OnInit {
       attending: true,
       rsvped: false,
     };
-    // this.searchedInvitees = new Array({
-    //   fname: 'Grant',
-    //   lname: 'Risk',
-    //   group_name: 'Group1',
-    //   attending: true,
-    //   rsvped: false,
-    // });
-    // // TODO: fix this.sent_invitee
-    // this.sent_invitee = {
-    //   fname: 'Grant',
-    //   lname: 'Risk',
-    //   group_name: 'Group1',
-    //   attending: true,
-    //   rsvped: false,
-    // };
-    // this.inviteeArray = new Array(
-    //   {
-    //     fname: 'Aidan',
-    //     lname: 'Boman',
-    //     group_name: 'Group1',
-    //     attending: true,
-    //     rsvped: false,
-    //   },
-    //   {
-    //     fname: 'Emma',
-    //     lname: 'Shipmaster',
-    //     group_name: 'Group1',
-    //     attending: true,
-    //     rsvped: true,
-    //   }
-    // );
   }
 
   ngOnInit(): void {
@@ -121,44 +94,42 @@ export class RsvpComponent implements OnInit {
       const foundInvitee = doc.data() as Invitee;
       this.searchedInvitees.push(foundInvitee);
     });
-    if (this.searchedInvitees.length > 0) {
-      console.log('Found Some!');
-    } else {
-      console.log('Huh?');
+    if (this.searchedInvitees.length <= 0) {
+      alert("Hmmm ... Could not find this name. Want to try again?")
     }
   }
 
-  delete() {
-    console.log('Deleted!');
-    const id = 'FjJ9i45OLRsE9F0bOnkE';
-    const inviteeDocumentReference = doc(
-      this.firestore,
-      `${Constants.invitees_collection}/${id}`
-    );
-    const result = deleteDoc(inviteeDocumentReference);
-    console.log(result);
-    return result;
-  }
+  // delete() {
+  //   console.log('Deleted!');
+  //   const id = 'FjJ9i45OLRsE9F0bOnkE';
+  //   const inviteeDocumentReference = doc(
+  //     this.firestore,
+  //     `${Constants.invitees_collection}/${id}`
+  //   );
+  //   const result = deleteDoc(inviteeDocumentReference);
+  //   console.log(result);
+  //   return result;
+  // }
 
-  create() {
-    console.log(this.customForm);
-    console.log('Saved: ' + JSON.stringify(this.customForm.value));
+  // create() {
+  //   console.log(this.customForm);
+  //   console.log('Saved: ' + JSON.stringify(this.customForm.value));
 
-    const first_name = this.customForm.value.fname;
-    const last_name = this.customForm.value.lname;
+  //   const first_name = this.customForm.value.fname;
+  //   const last_name = this.customForm.value.lname;
 
-    const test_invitee: Invitee = {
-      fname: first_name,
-      lname: last_name,
-      group_name: 'Group2',
-      attending: true,
-      rsvped: false,
-    };
+  //   const test_invitee: Invitee = {
+  //     fname: first_name,
+  //     lname: last_name,
+  //     group_name: 'Group2',
+  //     attending: true,
+  //     rsvped: false,
+  //   };
 
-    addDoc(this.myCollection, test_invitee);
+  //   addDoc(this.myCollection, test_invitee);
 
-    console.log('Submitted Invitee');
-  }
+  //   console.log('Submitted Invitee');
+  // }
 
   async setInvitee(invitee: Invitee) {
     this.sent_invitee = invitee;
@@ -176,8 +147,6 @@ export class RsvpComponent implements OnInit {
       const foundInvitee = doc.data() as Invitee;
       foundInvitee.docId = doc.id;
       this.inviteeArray.push(foundInvitee);
-      console.log(doc.id);
-      console.log(typeof doc.id);
     });
   }
 }

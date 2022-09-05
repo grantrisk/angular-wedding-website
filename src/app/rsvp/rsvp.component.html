@@ -11,9 +11,6 @@
         If you're responding for you and a guest (or your family), you'll be
         able to RSVP for your entire group on the next page.
       </p>
-      <p>
-        Just FYI, you might want to wait until we've settled all the dates 😏
-      </p>
     </div>
     <div class="form-section">
       <form novalidate (ngSubmit)="search()" [formGroup]="customForm">
@@ -104,6 +101,9 @@
     </div>
   </div>
   <div *ngIf="this_is_me">
-    <app-rsvp-verify [invitee]="sent_invitee" [inviteeArray]="inviteeArray"></app-rsvp-verify>
+    <app-rsvp-verify
+      [invitee]="sent_invitee"
+      [inviteeArray]="inviteeArray"
+    ></app-rsvp-verify>
   </div>
 </div>

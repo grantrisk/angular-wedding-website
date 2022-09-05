@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { doc, Firestore, updateDoc } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import { Constants, Invitee } from '../rsvp/rsvp.component';
 
 @Component({
@@ -11,7 +12,7 @@ export class RsvpVerifyComponent implements OnInit {
   @Input() invitee!: Invitee;
   @Input() inviteeArray!: Invitee[];
 
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: Firestore, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -22,6 +23,12 @@ export class RsvpVerifyComponent implements OnInit {
     if (state && !invitee.attending) {
       invitee.attending = !invitee.attending;
     }
+  }
+
+  redirectTo(uri: string) {
+    this.router
+      .navigateByUrl('/', { skipLocationChange: true })
+      .then(() => this.router.navigate([uri]));
   }
 
   submitForm() {
@@ -36,7 +43,8 @@ export class RsvpVerifyComponent implements OnInit {
         rsvped: person.rsvped,
         attending: person.attending,
       });
-      console.log(JSON.stringify(person));
     });
+    alert("Thank you for RSVPing! You're awesome!");
+    this.redirectTo('/rsvp');
   }
 }
