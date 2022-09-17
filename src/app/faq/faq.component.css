@@ -21,6 +21,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 200px;
 }
 
 .flexbox-item {
@@ -36,6 +37,10 @@
 @media only screen and (max-width: 768px) {
   .faq-section h1 {
     padding-top: 20%;
+  }
+
+  .flexbox-container {
+    height: 250px;
   }
 
   .flexbox-item {
