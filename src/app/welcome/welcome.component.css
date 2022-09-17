@@ -36,10 +36,6 @@
     background-position: 50% 0%;
   }
 
-  .wedding-pic-container > .wedding-pic-content {
-    /* text-shadow: 2px 2px #000000; */
-  }
-
   .wedding-pic-container > .wedding-pic-content > h1 {
     font-size: 12vw;
   }
@@ -51,14 +47,46 @@
 
 /* ---------- WELCOME SECTION ---------- */
 .welcome-section {
-  background-color: #CBE8EB;
+  background-color: #cbe8eb;
   text-align: center;
   height: 100%;
   padding: 3%;
+}
+
+.welcome-section-2 {
+  background-color: #cbe8eb;
+  text-align: center;
+  height: 100%;
+  padding: 5%;
 }
 
 .pull-right {
   float: right;
   padding-right: 10vw;
   margin: auto;
+}
+
+.photo-gallery-pictures {
+  background-color: #cbe8eb;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 4px;
+}
+
+.photo-gallery-pictures img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 4px 4px #a6d8dd;
+}
+
+a {
+  text-decoration: none;
+  color: green;
+  font-style: italic;
 }

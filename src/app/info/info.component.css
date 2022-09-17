@@ -10,10 +10,8 @@
   padding-top: 3%;
 }
 
-@media only screen and (max-width: 768px) {
-  .info-section h1 {
-    padding-top: 20%;
-  }
+.info-section p {
+  padding: 10px 30px;
 }
 
 .photo-gallery-section {
@@ -28,12 +26,6 @@
   padding-top: 3%;
 }
 
-@media only screen and (max-width: 768px) {
-  .photo-gallery-section h1 {
-    padding-top: 20%;
-  }
-}
-
 .photo-gallery-pictures {
   background-color: #CBE8EB;
   display: flex;
@@ -42,7 +34,7 @@
 }
 
 .photo-gallery-pictures img {
-  width: 300px;
+  width: auto;
   height: 400px;
   object-fit: cover;
   margin-left: auto;
@@ -51,4 +43,15 @@
   margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 4px 4px #A6D8DD;
+}
+
+@media only screen and (max-width: 768px) {
+  .info-section h1 {
+    padding-top: 20%;
+  }
+
+  .photo-gallery-pictures img {
+    width: 300px;
+  }
+
 }

@@ -2,8 +2,6 @@
   overflow: hidden;
   background-color: #cbe8eb;
   padding: 10px 10px;
-  /* TODO: Remove fixed setting of navbar */
-  /* position: fixed; */
   width: auto;
 }
 
@@ -25,7 +23,8 @@
   font-weight: bold;
 }
 
-.header a:hover {
+.header a:hover,
+.header a:focus {
   transition-duration: 0.1s;
   color: white;
 }
