@@ -86,18 +86,6 @@
           <button (click)="setInvitee(invitee)">This is me!</button>
         </li>
       </ul>
-      <!-- <br />
-      <ul>
-        <li *ngFor="let invitee of invitee$ | async">
-          {{ invitee.fname }}
-          {{ invitee.lname }}
-        </li>
-      </ul> -->
-      <!-- <br />
-      <br />Dirty: {{ customForm.dirty }} 
-      <br />Touched: {{ customForm.touched }}
-      <br />Valid: {{ customForm.valid }} 
-      <br />Value: {{ customForm.value | json }} -->
     </div>
   </div>
   <div *ngIf="this_is_me">
@@ -106,4 +94,7 @@
       [inviteeArray]="inviteeArray"
     ></app-rsvp-verify>
   </div>
+  <br />
+  <br />
+  <br />
 </div>

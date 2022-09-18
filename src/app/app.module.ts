@@ -37,7 +37,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
       { path: 'story', component: InfoComponent },
       { path: 'photos', component: PhotosComponent },
       { path: 'welcome', component: WelcomeComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '', component: WelcomeComponent },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
     ]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
