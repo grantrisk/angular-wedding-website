@@ -23,13 +23,6 @@ export interface Invitee {
   group_name: string;
   rsvped: boolean;
   attending: boolean;
-  meal_otion?: MealOption;
-}
-
-export enum MealOption {
-  chicken,
-  beef,
-  vegeterian,
 }
 
 export enum Constants {
