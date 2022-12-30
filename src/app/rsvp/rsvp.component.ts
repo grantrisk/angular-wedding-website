@@ -92,38 +92,6 @@ export class RsvpComponent implements OnInit {
     }
   }
 
-  // delete() {
-  //   console.log('Deleted!');
-  //   const id = 'FjJ9i45OLRsE9F0bOnkE';
-  //   const inviteeDocumentReference = doc(
-  //     this.firestore,
-  //     `${Constants.invitees_collection}/${id}`
-  //   );
-  //   const result = deleteDoc(inviteeDocumentReference);
-  //   console.log(result);
-  //   return result;
-  // }
-
-  // create() {
-  //   console.log(this.customForm);
-  //   console.log('Saved: ' + JSON.stringify(this.customForm.value));
-
-  //   const first_name = this.customForm.value.fname;
-  //   const last_name = this.customForm.value.lname;
-
-  //   const test_invitee: Invitee = {
-  //     fname: first_name,
-  //     lname: last_name,
-  //     group_name: 'Group2',
-  //     attending: true,
-  //     rsvped: false,
-  //   };
-
-  //   addDoc(this.myCollection, test_invitee);
-
-  //   console.log('Submitted Invitee');
-  // }
-
   async setInvitee(invitee: Invitee) {
     this.sent_invitee = invitee;
     this.this_is_me = !this.this_is_me;
