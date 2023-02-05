@@ -60,6 +60,34 @@
   padding: 5%;
 }
 
+.welcome-section-3 {
+  background-color: #cbe8eb;
+  text-align: center;
+  /* height: 100%; */
+  padding: 5%;
+}
+
+.welcome-section-3 a {
+  text-decoration: none;
+  color: #4e4e4e;
+  font-style: normal;
+}
+
+.welcome-section-3 img {
+  height: 100px;
+  animation: wave 6s ease-in-out 1s infinite;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  2% { transform: rotate(-5deg); }
+  5% { transform: rotate(5deg); }
+  8% { transform: rotate(-5deg); }
+  10% { transform: rotate(5deg); }
+  12% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
 .pull-right {
   float: right;
   padding-right: 10vw;
