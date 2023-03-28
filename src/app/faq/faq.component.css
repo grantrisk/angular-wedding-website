@@ -22,6 +22,7 @@
   justify-content: space-around;
   align-items: center;
   height: 200px;
+  margin-bottom: 20px;
 }
 
 .flexbox-item {
@@ -34,7 +35,10 @@
   min-height: 100px;
 }
 
-/* li no style, left aligned */
+ul {
+  padding: 0;
+}
+
 li {
   list-style-type: none;
 }
